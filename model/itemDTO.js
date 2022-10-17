@@ -7,7 +7,7 @@
 /**
  * Class declarations
 */
-class item{
+class itemDTO{
     constructor(code,name,qty,price) {
         this.code=code;
         this.name=name;

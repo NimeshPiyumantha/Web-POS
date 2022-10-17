@@ -25,3 +25,28 @@ function generateItemID() {
         return "I00-001";
     }
 }
+
+/**
+ * Button Add New Item
+ * */
+$("#btnAddItem").on( "click", function() {
+
+    //create object
+    let itemsArray = new itemDTO(
+        $("#txtItemID").val(),
+        $("#txtItemName").val(),
+        $("#txtItemQty").val(),
+        $("#txtItemPrice").val());
+
+    clearItemTextFields();
+
+    //Alert Save
+    saveUpdateAlert("Items", "saved.");
+
+    //Add the customer object to the array
+    items.push(itemsArray);
+
+    /* console.log(customers);*/
+    $("#txtItemID").val(generateItemID());
+    loadAllItems();
+});
