@@ -28,6 +28,14 @@ $("#customerBtn").click(function () {
 
 });
 
+$("#itemBtn").click(function () {
+    $("#HomeSection").css('display', 'none');
+    $("#CustomerSection").css('display', 'none');
+    $("#ItemSection").css('display', 'block');
+    $("#OrderSection").css('display', 'none');
+    $("#OrderDetails").css('display', 'none');
+
+});
 
 
 

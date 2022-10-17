@@ -278,6 +278,105 @@
 </main>
 <!-- Customer End-->
 
+<!-- Item Start-->
+<main class="container-fluid" id=ItemSection>
+    <!-- Item Header Start -->
+    <div class="container d-flex flex-grow-1 flex-column">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h2 id="H1-1" style="font-family: 'Arial Rounded MT Bold',serif"><i
+                    class="fa-sharp fa-solid fa-computer"></i> Item
+            </h2>
+        </div>
+    </div>
+    <!-- Item Header End -->
+
+    <!-- Item Header Section Start -->
+    <div class="container d-flex flex-grow-1 flex-column" style="background-color: #dfe4ea">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h6 id="H6-1">Home > Item</h6>
+            <hr>
+        </div>
+        <!-- Item Header Section End -->
+
+        <!-- Item Details Section Start -->
+        <div class="row justify-content-around" style="height: max-content">
+
+            <!-- Item Details Search Section Start -->
+            <div class="col-10 col-md-6 col-lg-5 p-0 mt-5 rounded-3 "
+                 style="background-color: white; height: max-content">
+                <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Manage Item</h4>
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="ItemIdSearch">Search Item :</label>
+                    <input class="form-control me-2 mt-2" id="ItemIdSearch"
+                           placeholder="Input Name/Code/Tp Here"
+                           type="search">
+                </div>
+                <div class="m-4">
+                    <button class="btn btn-success mt-2 m-1" data-bs-target="#registerItem"
+                            data-bs-toggle="modal" id="btnAddItem" type="button">+ New Item
+                    </button>
+
+                    <button class="btn btn-warning mt-2 m-1" data-bs-target="#updateItem"
+                            data-bs-toggle="modal" type="button">Update Item
+                    </button>
+
+                    <button class="btn btn-danger mt-2 m-1" data-bs-target="#deleteItem"
+                            data-bs-toggle="modal" type="button">Delete Item
+                    </button>
+                </div>
+            </div>
+            <!-- Item Details Search Section End -->
+            <!-- Customer Details Search Section Start -->
+            <div class="col-10 col-md-5 col-lg-4 p-0 mt-2 rounded-3" style="background-color: white">
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="txtItemID">Item ID :</label>
+                    <input class="form-control border-dark" disabled id="txtItemID" type="text">
+                </div>
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="txtItemName">Item Name :</label>
+                    <input class="form-control border-dark" id="txtItemName" type="text">
+                </div>
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="txtItemQty">Item Qty :</label>
+                    <input class="form-control border-dark" id="txtItemQty" type="text">
+                </div>
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="txtContactNumber">Item Price :</label>
+                    <input class="form-control border-dark" id="txtItemPrice" type="text">
+                </div>
+            </div>
+            <!-- Customer Details Search Section End -->
+        </div>
+        <!-- Item Details Section End -->
+
+        <!-- View Item Details Table Start -->
+
+        <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around " style="height: 320px;">
+            <div class="col-11 justify-content-around " style="height: 290px; background: white">
+                <div class="ItemTableDiv overflow-auto" style="height: 270px;">
+                    <table class="table table-success table-striped table-bordered table-hover">
+                        <thead class="text-light table-dark text-center  table-bordered sticky-top">
+                        <tr>
+                            <th>Item Code</th>
+                            <th>Item Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                        <tbody id="ItemTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- View Item Details Table End -->
+    </div>
+</main>
+<!-- Item End-->
 
 
 
