@@ -186,6 +186,35 @@ function updateItem(itemId) {
 }
 
 /**
+ * Item Delete
+ * */
+
+/**
+ * Delete Button
+ * */
+$("#btnDeleteItem").on( "click", function() {
+    let deleteIID = $("#txtItemID").val();
+    yesNoAlertIDelete(deleteIID);
+});
+
+/**
+ * Delete Methods
+ * */
+function deleteItems(itemID) {
+    let item = searchItem(itemID);
+    if (item != null) {
+        let indexNumber1 = items.indexOf(item);
+        items.splice(indexNumber1, 1);
+        loadAllItems();
+        clearItemTextFields();
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+/**
  * Search Methods
  * */
 function searchItem(itemID) {
