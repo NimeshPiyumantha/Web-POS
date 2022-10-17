@@ -152,6 +152,10 @@ $("#searchCusId").on( "keypress", function(event) {
 });
 
 /**
+ * Customer Update
+ * */
+
+/**
  * Update Button
  * */
 $("#btnUpdateCustomer").on( "click", function() {
@@ -181,6 +185,10 @@ function updateCustomers(CustomerId) {
         return false;
     }
 }
+
+/**
+ * Customer Delete
+ * */
 
 /**
  * Delete Button
