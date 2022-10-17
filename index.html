@@ -546,6 +546,87 @@
 </main>
 <!-- OrderFrom End-->
 
+<!-- OrderDetails Start-->
+<main class="container-fluid" id="OrderDetails">
+    <!-- Order Header Start -->
+    <div class="container d-flex flex-grow-1 flex-column">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h2 id="H1" style="font-family: 'Arial Rounded MT Bold',serif"><i
+                    class="fa-sharp fa-solid fa-cart-shopping"></i> Orders View
+            </h2>
+        </div>
+    </div>
+    <!-- Order Header End -->
+
+    <!-- Order Header Section Start -->
+    <div class="container d-flex flex-grow-1 flex-column" style="background-color: #dfe4ea">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h6 id="H6-4">Home > Orders Details</h6>
+            <hr>
+        </div>
+        <!-- Order Header Section End -->
+
+        <!-- Order Details Section Start -->
+        <div class="row justify-content-around" style="height: max-content">
+
+            <div class="row justify-content-evenly h-50">
+
+                <!-- Table Order -->
+                <section
+                        class="d-flex flex-column h-100 col-10 col-xl-11 shadow-lg rounded-3 align-items-center pt-3 mt-2 mb-4 ubFt" style="background: white">
+                    <h4 class="text-center p-2 text-light rounded-5 col-12 ubFt" style="background: #16A085">Orders</h4>
+                    <!-- View Orders Table Start -->
+                    <div class="col-11 justify-content-around " style="height: 250px;">
+                        <div class="PlaceOrderTableDiv overflow-auto" style="height: 150px;">
+                            <table class="table table-success table-striped table-bordered table-hover">
+                                <thead class="text-light table-dark text-center  table-bordered sticky-top">
+                                <tr>
+                                    <th>Order Id</th>
+                                    <th>Customer Id</th>
+                                    <th>Order Date</th>
+                                    <th>Sub Total</th>
+                                    <th>Discount</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tblOrder"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+                <!-- View Orders Table End -->
+
+                <!-- Table Order Details-->
+                <section
+                        class="d-flex flex-column h-100 col-10 col-xl-11 shadow-lg rounded-3 align-items-center pt-3 ubFt" style="background: white">
+                    <h4 class="text-center  p-2 text-light rounded-5 col-12" style="background: #16A085">Orders
+                        Details</h4>
+                    <!-- View Order Details Table Start -->
+                    <div class="col-11 justify-content-around " style="height: 250px;">
+                        <div class="PlaceOrderTableDiv overflow-auto" style="height: 150px;">
+                            <table class="table table-success table-striped table-bordered table-hover">
+                                <thead class="text-light table-dark text-center  table-bordered sticky-top">
+                                <tr>
+                                    <th>Order Id</th>
+                                    <th>Customer Id</th>
+                                    <th>Item Code</th>
+                                    <th>Qty</th>
+                                    <th>Total</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tblOrderDetails"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+                <!-- View Order Details Table End -->
+
+            </div>
+
+        </div>
+        <!-- Order Details Section End -->
+    </div>
+</main>
+<!-- OrderDetails End-->
 
 <!--Import js for bootstrap-->
 <script src="assets/styles/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
