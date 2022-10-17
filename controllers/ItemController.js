@@ -150,3 +150,49 @@ $("#btnSearchItem").on("keypress", function (event) {
         }
     }
 });
+
+/**
+ * Item Update
+ * */
+
+/**
+ * Update Button
+ * */
+$("#btnUpdateItem").on( "click", function() {
+    let ItemId = $("#txtItemID").val();
+    let response = updateItem(ItemId);
+    if (response) {
+        saveUpdateAlert(ItemId, "updated.");
+    } else {
+        unSucsessUpdateAlert(ItemId);
+    }
+});
+
+/**
+ * Update Methods
+ * */
+function updateItem(itemId) {
+    let item = searchItem(itemId);
+    if (item != null) {
+        item.code = $("#txtItemID").val();
+        item.name = $("#txtItemName").val();
+        item.qty = $("#txtItemQty").val();
+        item.price = $("#txtItemPrice").val();
+        loadAllItems();
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Search Methods
+ * */
+function searchItem(itemID) {
+    for (let item of items) {
+        if (item.code === itemID) {
+            return item;
+        }
+    }
+    return null;
+}
