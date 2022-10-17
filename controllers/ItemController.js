@@ -110,3 +110,14 @@ function blindClickEventsItem() {
 
     });
 }
+
+/**
+ * Table Listener double click and Click and Remove textFields
+ * */
+function dblRowClickEventsItem() {
+    $("#ItemTable>tr").on('dblclick', function () {
+        let deleteItemID = $(this).children().eq(0).text();
+        yesNoAlertIDelete(deleteItemID);
+
+    });
+}
