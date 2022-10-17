@@ -6,7 +6,7 @@
 /**
  * Class declarations
  */
-class customer{
+class customerDTO {
     constructor(id,name,address,salary) {
         this.id=id;
         this.name=name;
