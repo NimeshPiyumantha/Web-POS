@@ -37,5 +37,13 @@ $("#itemBtn").click(function () {
 
 });
 
+$("#orderBtn").click(function () {
+    $("#HomeSection").css('display', 'none');
+    $("#CustomerSection").css('display', 'none');
+    $("#ItemSection").css('display', 'none');
+    $("#OrderSection").css('display', 'block');
+    $("#OrderDetails").css('display', 'none');
+
+});
 
 
