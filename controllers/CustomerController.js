@@ -76,13 +76,15 @@ function loadAllCustomers() {
         //then add it to the table body of customer table
         $("#customerTable").append(row);
     }
+    blindClickEvents();
+    dblRowClickEventsCus();
 }
 
 /**
  * Table Listener Click and Load textFields
  * */
 function blindClickEvents() {
-    $("#customerTable>tr").click(function () {
+    $("#customerTable>tr").on( "click", function() {
         let id = $(this).children().eq(0).text();
         let name = $(this).children().eq(1).text();
         let address = $(this).children().eq(2).text();
@@ -96,3 +98,15 @@ function blindClickEvents() {
 
     });
 }
+
+
+/**
+ * Table Listener double click and Click and Remove textFields
+ * */
+function dblRowClickEventsCus() {
+    $("#customerTable>tr").on('dbClick', function () {
+        let deleteCusID = $(this).children().eq(0).text();
+        yesNoAlertDelete(deleteCusID);
+    });
+}
+
