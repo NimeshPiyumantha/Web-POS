@@ -15,3 +15,8 @@
     font-size: 0.9em;
 }
 
+.sectionBorder{
+    box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;    border-radius: 8px;
+}
+
+

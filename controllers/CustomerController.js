@@ -13,6 +13,7 @@
  * */
 $("#btnSaveCustomer").attr('disabled', true);
 $("#btnUpdateCustomer").attr('disabled', true);
+$("#btnDeleteCustomer").attr('disabled', true);
 
 function generateCustomerID() {
     if (customers.length > 0) {
@@ -60,6 +61,9 @@ function clearCusTextFields() {
     txtContactNumber.value = '';
     $("#txtCusName").focus();
     checkValidity(customerValidations);
+    $("#btnSaveCustomer").attr('disabled', true);
+    $("#btnUpdateCustomer").attr('disabled', true);
+    $("#btnDeleteCustomer").attr('disabled', true);
 }
 
 /**
@@ -100,7 +104,9 @@ function blindClickEvents() {
         $("#txtCusName").val(name);
         $("#txtCusAddress").val(address);
         $("#txtContactNumber").val(contact);
+
         $("#btnSaveCustomer").attr('disabled', true);
+        $("#btnDeleteCustomer").attr('disabled', false);
 
     });
 }
@@ -133,7 +139,9 @@ $("#searchCusId").on( "keypress", function(event) {
             $("#txtCusName").val(result.name);
             $("#txtCusAddress").val(result.address);
             $("#txtContactNumber").val(result.contact);
+
             $("#btnSaveCustomer").attr('disabled', true);
+            $("#btnDeleteCustomer").attr('disabled', false);
 
         } else {
             emptyMassage();
