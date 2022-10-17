@@ -110,3 +110,29 @@ function dblRowClickEventsCus() {
     });
 }
 
+/**
+ * Search id and Load Table
+ * */
+$("#searchCusId").on( "keypress", function(event) {
+    if (event.which === 13) {
+        var result = customers.find(({id}) => id === $("#searchCusId").val());
+        console.log(result);
+
+        if (result != null) {
+            $("#customerTable").empty();
+            var row = `<tr><td>${result.id}</td><td>${result.name}</td><td>${result.address}</td><td>${result.contact}</td></tr>`;
+            $("#customerTable").append(row);
+
+            $("#txtCusId").val(result.id);
+            $("#txtCusName").val(result.name);
+            $("#txtCusAddress").val(result.address);
+            $("#txtContactNumber").val(result.contact);
+
+        } else {
+            emptyMassage();
+            clearCusTextFields();
+            $("#txtCusId").val(generateCustomerID());
+            loadAllCustomers();
+        }
+    }
+});
