@@ -21,3 +21,59 @@ function generateCustomerID() {
         return "C00-001";
     }
 }
+
+/**
+ * Button Add New Customer
+ * */
+$("#btnSaveCustomer").on( "click", function() {
+
+    //create object
+    let CustomerArray = new customerDTO(
+        $("#txtCusId").val(),
+        $("#txtCusName").val(),
+        $("#txtCusAddress").val(),
+        $("#txtContactNumber").val());
+
+    clearCusTextFields();
+
+    //Alert Save
+    saveUpdateAlert("Customer", "saved.");
+
+    //Add the customer object to the array
+    customers.push(CustomerArray);
+
+    /* console.log(customers);*/
+    $("#txtCusId").val(generateCustomerID());
+    loadAllCustomers();
+});
+
+/**
+ * clear input fields Values Method
+ * */
+function clearCusTextFields() {
+    txtCusId.value = '';
+    txtCusName.value = '';
+    txtCusAddress.value = '';
+    txtContactNumber.value = '';
+    $("#txtCusId").focus();
+}
+
+/**
+ * load all customers Method
+ * */
+function loadAllCustomers() {
+
+    //remove all the table body content before adding data
+    $("#customerTable").empty();
+
+    // get all customer records from the array
+    for (var customer of customers) {
+        console.log(customer);// customer object
+
+        // Using String Literals to do the same thing as above
+        var row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.contact}</td></tr>`;
+
+        //then add it to the table body of customer table
+        $("#customerTable").append(row);
+    }
+}

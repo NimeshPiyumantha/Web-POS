@@ -7,10 +7,10 @@
  * Class declarations
  */
 class customerDTO {
-    constructor(id,name,address,salary) {
+    constructor(id,name,address,contact) {
         this.id=id;
         this.name=name;
         this.address=address;
-        this.salary=salary;
+        this.contact=contact;
     }
 }

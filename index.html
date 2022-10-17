@@ -212,16 +212,13 @@
                            type="search">
                 </div>
                 <div class="m-4">
-                    <button class="btn btn-success mt-2 m-2" data-bs-target="#registerCustomer"
-                            data-bs-toggle="modal" id="btnRegister" type="button">+ New Customer
+                    <button class="btn btn-success mt-2 m-2" id="btnSaveCustomer" type="button">+ New Customer
                     </button>
 
-                    <button class="btn btn-warning mt-2 m-2" data-bs-target="#updateCustomer"
-                            data-bs-toggle="modal" type="button">Update Customer
+                    <button class="btn btn-warning mt-2 m-2" id="btnUpdateCustomer" type="button">Update Customer
                     </button>
 
-                    <button class="btn btn-danger mt-2 m-2" data-bs-target="#deleteCustomer"
-                            data-bs-toggle="modal" type="button">Delete Customer
+                    <button class="btn btn-danger mt-2 m-2" id="btnDeleteCustomer" type="button">Delete Customer
                     </button>
                 </div>
             </div>
@@ -411,7 +408,7 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-6">
                         <label class="fw-bold" for="orderDate">Order Date :</label>
-                        <input class="form-control border-dark"  id="orderDate" type="date">
+                        <input class="form-control border-dark" id="orderDate" type="date">
                     </div>
                 </div>
                 <div class="row mt-1">
@@ -573,7 +570,8 @@
 
                 <!-- Table Order -->
                 <section
-                        class="d-flex flex-column h-100 col-10 col-xl-11 shadow-lg rounded-3 align-items-center pt-3 mt-2 mb-4 ubFt" style="background: white">
+                        class="d-flex flex-column h-100 col-10 col-xl-11 shadow-lg rounded-3 align-items-center pt-3 mt-2 mb-4 ubFt"
+                        style="background: white">
                     <h4 class="text-center p-2 text-light rounded-5 col-12 ubFt" style="background: #16A085">Orders</h4>
                     <!-- View Orders Table Start -->
                     <div class="col-11 justify-content-around " style="height: 250px;">
@@ -597,7 +595,8 @@
 
                 <!-- Table Order Details-->
                 <section
-                        class="d-flex flex-column h-100 col-10 col-xl-11 shadow-lg rounded-3 align-items-center pt-3 ubFt" style="background: white">
+                        class="d-flex flex-column h-100 col-10 col-xl-11 shadow-lg rounded-3 align-items-center pt-3 ubFt"
+                        style="background: white">
                     <h4 class="text-center  p-2 text-light rounded-5 col-12" style="background: #16A085">Orders
                         Details</h4>
                     <!-- View Order Details Table Start -->
@@ -635,10 +634,12 @@
 <script rel="script" src="assets/styles/jQuery/jquery-3.6.1.min.js"></script>
 <script rel="script" src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/sweetalert2.all.min.js"></script>
 <script rel="script" src="db/db.js"></script>
+
 <script rel="script" src="controllers/DashboardController.js"></script>
 <script rel="script" src="controllers/CustomerController.js"></script>
 
-
 <script rel="script" src="model/customerDTO.js"></script>
+
+<script rel="script" src="util/alert.js"></script>
 </body>
 </html>

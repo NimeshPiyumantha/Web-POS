@@ -3,7 +3,7 @@
  * @since : 0.1.0
  **/
 
-let customers = [];
-let items = [];
-let orders = [];
-let orderDetails = [];
+var customers = [];
+var items = [];
+var orders = [];
+var orderDetails = [];
