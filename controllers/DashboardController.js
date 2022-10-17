@@ -36,6 +36,7 @@ $("#itemBtn").click(function () {
     $("#OrderSection").css('display', 'none');
     $("#OrderDetails").css('display', 'none');
 
+    $("#txtItemID").val(generateItemID());
 });
 
 $("#orderBtn").click(function () {
