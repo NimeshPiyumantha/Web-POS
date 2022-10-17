@@ -7,14 +7,13 @@
  * Customer Save
  * */
 
+$("#btnSaveCustomer").attr('disabled', true);
+$("#btnUpdateCustomer").attr('disabled', true);
+$("#btnDeleteCustomer").attr('disabled', true);
 /**
  * Customer Save
  * Customer ID
  * */
-$("#btnSaveCustomer").attr('disabled', true);
-$("#btnUpdateCustomer").attr('disabled', true);
-$("#btnDeleteCustomer").attr('disabled', true);
-
 function generateCustomerID() {
     if (customers.length > 0) {
         let lastId = customers[customers.length - 1].id;

@@ -325,30 +325,34 @@
                 </div>
             </div>
             <!-- Item Details Search Section End -->
-            <!-- Customer Details Search Section Start -->
+            <!-- Item Details Search Section Start -->
             <div class="col-10 col-md-5 col-lg-4 p-0 mt-2 rounded-3 sectionBorder" style="background-color: white">
 
                 <div class="mb-3 ms-3 me-3 mt-3 ">
                     <label class="fw-bold" for="txtItemID">Item ID :</label>
                     <input class="form-control " disabled id="txtItemID" type="text">
+                    <span class="control-error"></span>
                 </div>
 
                 <div class="mb-3 ms-3 me-3 mt-3 ">
                     <label class="fw-bold" for="txtItemName">Item Name :</label>
                     <input class="form-control " id="txtItemName" type="text">
+                    <span class="control-error"></span>
                 </div>
 
                 <div class="mb-3 ms-3 me-3 mt-3 ">
                     <label class="fw-bold" for="txtItemQty">Item Qty :</label>
                     <input class="form-control " id="txtItemQty" type="text">
+                    <span class="control-error"></span>
                 </div>
 
                 <div class="mb-3 ms-3 me-3 mt-3 ">
                     <label class="fw-bold" for="txtContactNumber">Item Price :</label>
                     <input class="form-control " id="txtItemPrice" type="text">
+                    <span class="control-error"></span>
                 </div>
             </div>
-            <!-- Customer Details Search Section End -->
+            <!-- Item Details Search Section End -->
         </div>
         <!-- Item Details Section End -->
 
@@ -638,8 +642,11 @@
 
 <script rel="script" src="controllers/DashboardController.js"></script>
 <script rel="script" src="controllers/CustomerController.js"></script>
+<script rel="script" src="controllers/ItemController.js"></script>
 
 <script rel="script" src="model/customerDTO.js"></script>
+<script rel="script" src="model/itemDTO.js"></script>
+
 
 <script rel="script" src="util/alert.js"></script>
 <script rel="script" src="util/validation.js"></script>
