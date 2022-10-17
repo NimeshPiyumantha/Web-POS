@@ -77,3 +77,22 @@ function loadAllCustomers() {
         $("#customerTable").append(row);
     }
 }
+
+/**
+ * Table Listener Click and Load textFields
+ * */
+function blindClickEvents() {
+    $("#customerTable>tr").click(function () {
+        let id = $(this).children().eq(0).text();
+        let name = $(this).children().eq(1).text();
+        let address = $(this).children().eq(2).text();
+        let contact = $(this).children().eq(3).text();
+        console.log(id, name, address, contact);
+
+        $("#txtCusId").val(id);
+        $("#txtCusName").val(name);
+        $("#txtCusAddress").val(address);
+        $("#txtContactNumber").val(contact);
+
+    });
+}
