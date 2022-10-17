@@ -1,0 +1,17 @@
+/**
+ * @author : Nimesh Piyumantha
+ * @since : 0.1.0
+ **/
+
+.card-header{
+    color: white !important;
+}
+.dash-tile-icon{
+    font-size: 4.5em;
+}
+
+.control-error {
+    color: red;
+    font-size: 0.9em;
+}
+
