@@ -29,7 +29,7 @@ function generateItemID() {
 /**
  * Button Add New Item
  * */
-$("#btnAddItem").on( "click", function() {
+$("#btnAddItem").on("click", function () {
 
     //create object
     let itemsArray = new itemDTO(
@@ -121,3 +121,32 @@ function dblRowClickEventsItem() {
 
     });
 }
+
+/**
+ * Search id and Load Table
+ * */
+$("#btnSearchItem").on("keypress", function (event) {
+    if (event.which === 13) {
+        var resultI = items.find(({code}) => code === $("#ItemIdSearch").val());
+        console.log(resultI);
+
+        if (resultI != null) {
+            $("#ItemTable").empty();
+            var row = `<tr><td>${resultI.code}</td><td>${resultI.name}</td><td>${resultI.qty}</td><td>${resultI.price}</td></tr>`;
+            $("#ItemTable").append(row);
+
+            $("#txtItemID").val(resultI.code);
+            $("#txtItemName").val(resultI.name);
+            $("#txtItemQty").val(resultI.qty);
+            $("#txtItemPrice").val(resultI.price);
+
+            $("#btnAddItem").attr('disabled', true);
+            $("#btnDeleteItem").attr('disabled', false);
+
+        } else {
+            emptyMassage();
+            clearItemTextFields();
+            loadAllItems();
+        }
+    }
+});
