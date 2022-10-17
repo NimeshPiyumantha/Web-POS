@@ -66,3 +66,28 @@ function clearItemTextFields() {
     $("#btnDeleteItem").attr('disabled', true);
 }
 
+/**
+ * load all Item Method
+ * */
+function loadAllItems() {
+
+    //remove all the table body content before adding data
+    $("#ItemTable").empty();
+
+
+    // get all items records from the array
+    for (var item of items) {
+        console.log(item);// items object
+
+        // Using String Literals to do the same thing as above
+        var row = `<tr><td>${item.code}</td><td>${item.name}</td><td>${item.qty}</td><td>${item.price}</td></tr>`;
+
+        //then add it to the table body of items table
+        $("#ItemTable").append(row);
+    }
+    blindClickEventsItem();
+    dblRowClickEventsItem();
+    $("#txtItemID").val(generateItemID());
+}
+
+
