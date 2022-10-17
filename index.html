@@ -179,6 +179,108 @@
 </main>
 <!-- Home End-->
 
+<!-- Customer Start-->
+<main class="container-fluid" id="CustomerSection">
+    <!-- Customer Header Start -->
+    <div class="container d-flex flex-grow-1 flex-column">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h2 id="H1-3" style="font-family: 'Arial Rounded MT Bold',serif"><i class="fa-solid fa-users"></i> Customer
+            </h2>
+        </div>
+    </div>
+    <!-- Customer Header End -->
+
+    <!-- Customer Header Section Start -->
+    <div class="container d-flex flex-grow-1 flex-column" style="background-color: #dfe4ea">
+        <div class="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
+            <h6 id="H6">Home > Customer</h6>
+            <hr>
+        </div>
+        <!-- Customer Header Section End -->
+
+        <!-- Customer Details Section Start -->
+        <div class="row justify-content-around " style="height: max-content">
+
+            <!-- Customer Details Search Section Start -->
+            <div class="col-10 col-md-6 col-lg-5 p-0 mt-5 rounded-3 "
+                 style="background-color: white;height: max-content ">
+                <h4 class="text-center p-2 text-light rounded-3" style="background: #16A085">Mange Customer</h4>
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="searchCusId">Search Customer :</label>
+                    <input class="form-control me-2 mt-2" id="searchCusId" placeholder="Input Name/NIC/Tp Here"
+                           type="search">
+                </div>
+                <div class="m-4">
+                    <button class="btn btn-success mt-2 m-2" data-bs-target="#registerCustomer"
+                            data-bs-toggle="modal" id="btnRegister" type="button">+ New Customer
+                    </button>
+
+                    <button class="btn btn-warning mt-2 m-2" data-bs-target="#updateCustomer"
+                            data-bs-toggle="modal" type="button">Update Customer
+                    </button>
+
+                    <button class="btn btn-danger mt-2 m-2" data-bs-target="#deleteCustomer"
+                            data-bs-toggle="modal" type="button">Delete Customer
+                    </button>
+                </div>
+            </div>
+            <!-- Customer Details Search Section End -->
+
+            <!-- Customer Details Search Section Start -->
+            <div class="col-10 col-md-5 col-lg-4 p-0 mt-2 rounded-3" style="background-color: white">
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="txtCusId">Customer ID :</label>
+                    <input class="form-control border-dark" disabled id="txtCusId" type="text">
+                </div>
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="txtCusName">Customer Name :</label>
+                    <input class="form-control border-dark" id="txtCusName" type="text">
+                </div>
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="txtCusAddress">Customer Address :</label>
+                    <input class="form-control border-dark" id="txtCusAddress" type="text">
+                </div>
+
+                <div class="mb-3 ms-3 me-3 mt-3 ">
+                    <label class="fw-bold" for="txtContactNumber">Contact Number :</label>
+                    <input class="form-control border-dark" id="txtContactNumber" type="text">
+                </div>
+            </div>
+            <!-- Customer Details Search Section End -->
+
+        </div>
+        <!-- Customer Details Section End -->
+
+        <!-- View Customer Details Table Start -->
+        <div class="row mt-1 mt-md-2 mt-lg-4 justify-content-around" style="height: 320px;">
+            <div class="col-11 justify-content-around " style="height: 290px; background: white">
+                <div class="customerTableDiv overflow-auto" style="height: 270px;">
+                    <table class="table table-success table-striped table-bordered table-hover">
+                        <thead class="text-light table-dark text-center  table-bordered sticky-top">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Salary</th>
+                        </tr>
+                        </thead>
+                        <tbody id="customerTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- View Customer Details Table End -->
+    </div>
+</main>
+<!-- Customer End-->
+
+
+
+
 <!--Import js for bootstrap-->
 <script src="assets/styles/bootstrap-5.2.1-dist/js/bootstrap.min.js"></script>
 
