@@ -78,6 +78,7 @@ function loadAllCustomers() {
     }
     blindClickEvents();
     dblRowClickEventsCus();
+    $("#txtCusId").val(generateCustomerID());
 }
 
 /**
@@ -104,7 +105,7 @@ function blindClickEvents() {
  * Table Listener double click and Click and Remove textFields
  * */
 function dblRowClickEventsCus() {
-    $("#customerTable>tr").on('dbClick', function () {
+    $("#customerTable>tr").on('dblclick', function () {
         let deleteCusID = $(this).children().eq(0).text();
         yesNoAlertDelete(deleteCusID);
     });
@@ -131,8 +132,38 @@ $("#searchCusId").on( "keypress", function(event) {
         } else {
             emptyMassage();
             clearCusTextFields();
-            $("#txtCusId").val(generateCustomerID());
             loadAllCustomers();
         }
     }
 });
+
+/**
+ * Delete Button
+ * */
+$("#btnDeleteCustomer").on( "click", function() {
+    let deleteID = $("#txtCusId").val();
+
+    yesNoAlertDelete(deleteID);
+});
+
+function deleteCustomer(customerID) {
+    let customer = searchCustomer(customerID);
+    if (customer != null) {
+        let indexNumber = customers.indexOf(customer);
+        customers.splice(indexNumber, 1);
+        loadAllCustomers();
+        clearCusTextFields();
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function searchCustomer(cusId) {
+    for (let customer of customers) {
+        if (customer.id === cusId) {
+            return customer;
+        }
+    }
+    return null;
+}
