@@ -138,6 +138,37 @@ $("#searchCusId").on( "keypress", function(event) {
 });
 
 /**
+ * Update Button
+ * */
+$("#btnUpdateCustomer").on( "click", function() {
+    let CustomerId = $("#txtCusId").val();
+    let response2 = updateCustomers(CustomerId);
+    if (response2) {
+        saveUpdateAlert(CustomerId, "updated.");
+        clearCusTextFields();
+        loadAllCustomers();
+    } else {
+        unSucsessUpdateAlert(CustomerId);
+    }
+});
+
+/**
+ * Update Methods
+ * */
+function updateCustomers(CustomerId) {
+    let customer = searchCustomer(CustomerId);
+    if (customer != null) {
+        customer.id = $("#txtCusId").val();
+        customer.name = $("#txtCusName").val();
+        customer.address = $("#txtCusAddress").val();
+        customer.contact = $("#txtContactNumber").val();
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
  * Delete Button
  * */
 $("#btnDeleteCustomer").on( "click", function() {
@@ -146,6 +177,9 @@ $("#btnDeleteCustomer").on( "click", function() {
     yesNoAlertDelete(deleteID);
 });
 
+/**
+ * Delete Methods
+ * */
 function deleteCustomer(customerID) {
     let customer = searchCustomer(customerID);
     if (customer != null) {
@@ -159,6 +193,9 @@ function deleteCustomer(customerID) {
     }
 }
 
+/**
+ * Search Methods
+ * */
 function searchCustomer(cusId) {
     for (let customer of customers) {
         if (customer.id === cusId) {
