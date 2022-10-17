@@ -15,6 +15,9 @@ function checkValidity(object) {
     }
     setButtonStateCustomerSave(errorCount);
     setButtonStateCustomerUpdate(errorCount);
+
+    setButtonStateItemSave(errorCount);
+    setButtonStateItemUpdate(errorCount);
 }
 
 function check(regex, txtField) {

@@ -60,7 +60,7 @@ function clearItemTextFields() {
     txtItemQty.value = '';
     txtItemPrice.value = '';
     $("#txtItemName").focus();
-
+    checkValidity(ItemsValidations);
     $("#btnAddItem").attr('disabled', true);
     $("#btnUpdateItem").attr('disabled', true);
     $("#btnDeleteItem").attr('disabled', true);
@@ -213,7 +213,6 @@ function deleteItems(itemID) {
     }
 }
 
-
 /**
  * Search Methods
  * */
@@ -224,4 +223,98 @@ function searchItem(itemID) {
         }
     }
     return null;
+}
+
+/**
+ * Auto Forces Input Fields Save
+ * */
+$("#txtItemID").focus();
+const regExItemCode = /^(I00-)[0-9]{3,4}$/;
+const regExItemName = /^[A-z ]{3,20}$/;
+const regExItemPrice = /^[0-9]{1,10}$/;
+const regExItemQtyOnHand = /^[0-9]{1,}[.]?[0-9]{1,2}$/;
+
+let ItemsValidations = [];
+ItemsValidations.push({
+    reg: regExItemCode,
+    field: $('#txtItemID'),
+    error: 'Item ID Pattern is Wrong : I00-001'
+});
+ItemsValidations.push({
+    reg: regExItemName,
+    field: $('#txtItemName'),
+    error: 'Item Name Pattern is Wrong : A-z 3-20'
+});
+ItemsValidations.push({
+    reg: regExItemPrice,
+    field: $('#txtItemQty'),
+    error: 'Item Qty Pattern is Wrong : 0-9 1-10'
+});
+ItemsValidations.push({
+    reg: regExItemQtyOnHand,
+    field: $('#txtItemPrice'),
+    error: 'Item Salary Pattern is Wrong : 100 or 100.00'
+});
+
+//disable tab key of all four text fields using grouping selector in CSS
+$("#txtItemID,#txtItemName,#txtItemQty,#txtItemPrice").on('keydown', function (event) {
+    if (event.key === "Tab") {
+        event.preventDefault();
+    }
+});
+
+
+$("#txtItemID,#txtItemName,#txtItemQty,#txtItemPrice").on('keyup', function (event) {
+    checkValidity(ItemsValidations);
+});
+
+$("#txtItemID,#txtItemName,#txtItemQty,#txtItemPrice").on('blur', function (event) {
+    checkValidity(ItemsValidations);
+});
+
+
+$("#txtItemID").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExItemCode, $("#txtItemID"))) {
+        $("#txtItemName").focus();
+    } else {
+        focusText($("#txtItemID"));
+    }
+});
+
+
+$("#txtItemName").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExItemName, $("#txtItemName"))) {
+        focusText($("#txtItemQty"));
+    }
+});
+
+
+$("#txtItemQty").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExItemPrice, $("#txtItemQty"))) {
+        focusText($("#txtItemPrice"));
+    }
+});
+
+$("#txtItemPrice").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExItemQtyOnHand, $("#txtItemPrice"))) {
+        if (event.which === 13) {
+            $('#btnAddItem').focus();
+        }
+    }
+});
+
+function setButtonStateItemSave(value) {
+    if (value > 0) {
+        $("#btnAddItem").attr('disabled', true);
+    } else {
+        $("#btnAddItem").attr('disabled', false);
+    }
+}
+
+function setButtonStateItemUpdate(value) {
+    if (value > 0) {
+        $("#btnAddItem").attr('disabled', true);
+    } else {
+        $("#btnAddItem").attr('disabled', false);
+    }
 }

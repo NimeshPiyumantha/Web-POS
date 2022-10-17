@@ -229,7 +229,7 @@ function searchCustomer(cusId) {
 /**
  * Auto Forces Input Fields Save
  * */
-$("#txtCustomerId").focus();
+$("#txtCusId").focus();
 const regExCusID = /^(C00-)[0-9]{3,4}$/;
 const regExCusName = /^[A-z ]{3,20}$/;
 const regExCusAddress = /^[A-z0-9/ ]{4,30}$/;
