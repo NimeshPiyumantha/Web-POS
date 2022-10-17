@@ -229,22 +229,26 @@
 
                 <div class="mb-3 ms-3 me-3 mt-3 ">
                     <label class="fw-bold" for="txtCusId">Customer ID :</label>
-                    <input class="form-control border-dark" disabled id="txtCusId" type="text">
+                    <input class="form-control" disabled id="txtCusId" type="text">
+                    <span class="control-error"></span>
                 </div>
 
                 <div class="mb-3 ms-3 me-3 mt-3 ">
                     <label class="fw-bold" for="txtCusName">Customer Name :</label>
-                    <input class="form-control border-dark" id="txtCusName" type="text">
+                    <input class="form-control" id="txtCusName" type="text">
+                    <span class="control-error"></span>
                 </div>
 
                 <div class="mb-3 ms-3 me-3 mt-3 ">
                     <label class="fw-bold" for="txtCusAddress">Customer Address :</label>
-                    <input class="form-control border-dark" id="txtCusAddress" type="text">
+                    <input class="form-control" id="txtCusAddress" type="text">
+                    <span class="control-error"></span>
                 </div>
 
                 <div class="mb-3 ms-3 me-3 mt-3 ">
                     <label class="fw-bold" for="txtContactNumber">Contact Number :</label>
-                    <input class="form-control border-dark" id="txtContactNumber" type="text">
+                    <input class="form-control" id="txtContactNumber" type="text">
+                    <span class="control-error"></span>
                 </div>
             </div>
             <!-- Customer Details Search Section End -->
@@ -262,7 +266,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Address</th>
-                            <th>Salary</th>
+                            <th>Contact Number</th>
                         </tr>
                         </thead>
                         <tbody id="customerTable"></tbody>
@@ -638,5 +642,6 @@
 <script rel="script" src="model/customerDTO.js"></script>
 
 <script rel="script" src="util/alert.js"></script>
+<script rel="script" src="util/validation.js"></script>
 </body>
 </html>

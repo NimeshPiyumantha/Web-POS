@@ -11,6 +11,9 @@
  * Customer Save
  * Customer ID
  * */
+$("#btnSaveCustomer").attr('disabled', true);
+$("#btnUpdateCustomer").attr('disabled', true);
+
 function generateCustomerID() {
     if (customers.length > 0) {
         let lastId = customers[customers.length - 1].id;
@@ -55,7 +58,8 @@ function clearCusTextFields() {
     txtCusName.value = '';
     txtCusAddress.value = '';
     txtContactNumber.value = '';
-    $("#txtCusId").focus();
+    $("#txtCusName").focus();
+    checkValidity(customerValidations);
 }
 
 /**
@@ -96,6 +100,7 @@ function blindClickEvents() {
         $("#txtCusName").val(name);
         $("#txtCusAddress").val(address);
         $("#txtContactNumber").val(contact);
+        $("#btnSaveCustomer").attr('disabled', true);
 
     });
 }
@@ -128,6 +133,7 @@ $("#searchCusId").on( "keypress", function(event) {
             $("#txtCusName").val(result.name);
             $("#txtCusAddress").val(result.address);
             $("#txtContactNumber").val(result.contact);
+            $("#btnSaveCustomer").attr('disabled', true);
 
         } else {
             emptyMassage();
@@ -203,4 +209,95 @@ function searchCustomer(cusId) {
         }
     }
     return null;
+}
+
+/**
+ * Auto Forces Input Fields Save
+ * */
+$("#txtCustomerId").focus();
+const regExCusID = /^(C00-)[0-9]{3,4}$/;
+const regExCusName = /^[A-z ]{3,20}$/;
+const regExCusAddress = /^[A-z0-9/ ]{4,30}$/;
+const regExContact = /^(07(0|1|2|4|5|6|7|8)[0-9]{7})$/;
+
+let customerValidations = [];
+customerValidations.push({
+    reg: regExCusID,
+    field: $('#txtCusId'),
+    error: 'Customer ID Pattern is Wrong : C00-001'
+});
+customerValidations.push({
+    reg: regExCusName,
+    field: $('#txtCusName'),
+    error: 'Customer Name Pattern is Wrong : A-z 3-20'
+});
+customerValidations.push({
+    reg: regExCusAddress,
+    field: $('#txtCusAddress'),
+    error: 'Customer Address Pattern is Wrong : A-z 0-9 ,/'
+});
+customerValidations.push({
+    reg: regExContact,
+    field: $('#txtContactNumber'),
+    error: 'Customer Contact Pattern is Wrong : 07[0|1|2|4|5|6|7|8]'
+});
+
+//disable tab key of all four text fields using grouping selector in CSS
+$("#txtCusId,#txtCusName,#txtCusAddress,#txtContactNumber").on('keydown', function (event) {
+    if (event.key === "Tab") {
+        event.preventDefault();
+    }
+});
+
+$("#txtCusId,#txtCusName,#txtCusAddress,#txtContactNumber").on('keyup', function (event) {
+    checkValidity(customerValidations);
+});
+
+$("#txtCusId,#txtCusName,#txtCusAddress,#txtContactNumber").on('blur', function (event) {
+    checkValidity(customerValidations);
+});
+
+$("#txtCusId").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusID, $("#txtCusId"))) {
+        $("#txtCusName").focus();
+    } else {
+        focusText($("#txtCusId"));
+    }
+});
+
+
+$("#txtCusName").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusName, $("#txtCusName"))) {
+        focusText($("#txtCusAddress"));
+    }
+});
+
+$("#txtCusAddress").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExCusAddress, $("#txtCusAddress"))) {
+        focusText($("#txtContactNumber"));
+    }
+});
+
+$("#txtContactNumber").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExContact, $("#txtContactNumber"))) {
+        if (event.which === 13) {
+            $('#btnSaveCustomer').focus();
+        }
+    }
+});
+
+function setButtonStateCustomerSave(value) {
+    if (value > 0) {
+        $("#btnSaveCustomer").attr('disabled', true);
+    } else {
+        $("#btnSaveCustomer").attr('disabled', false);
+    }
+}
+
+function setButtonStateCustomerUpdate(value) {
+    if (value > 0) {
+        $("#btnUpdateCustomer").attr('disabled', true);
+    } else {
+        $("#btnUpdateCustomer").attr('disabled', false);
+    }
 }
