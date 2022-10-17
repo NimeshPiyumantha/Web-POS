@@ -90,4 +90,23 @@ function loadAllItems() {
     $("#txtItemID").val(generateItemID());
 }
 
+/**
+ * Table Listener Click and Load textFields
+ * */
+function blindClickEventsItem() {
+    $("#ItemTable>tr").click(function () {
+        let code = $(this).children().eq(0).text();
+        let name = $(this).children().eq(1).text();
+        let qty = $(this).children().eq(2).text();
+        let price = $(this).children().eq(3).text();
 
+        $("#txtItemID").val(code);
+        $("#txtItemName").val(name);
+        $("#txtItemQty").val(qty);
+        $("#txtItemPrice").val(price);
+
+        $("#btnAddItem").attr('disabled', true);
+        $("#btnDeleteItem").attr('disabled', false);
+
+    });
+}
