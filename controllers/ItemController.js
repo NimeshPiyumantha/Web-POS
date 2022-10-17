@@ -50,3 +50,19 @@ $("#btnAddItem").on( "click", function() {
     $("#txtItemID").val(generateItemID());
     loadAllItems();
 });
+
+/**
+ * clear input fields Values Method
+ * */
+function clearItemTextFields() {
+    txtItemID.value = '';
+    txtItemName.value = '';
+    txtItemQty.value = '';
+    txtItemPrice.value = '';
+    $("#txtItemName").focus();
+
+    $("#btnAddItem").attr('disabled', true);
+    $("#btnUpdateItem").attr('disabled', true);
+    $("#btnDeleteItem").attr('disabled', true);
+}
+
