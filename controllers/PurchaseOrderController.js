@@ -318,3 +318,12 @@ $("#btnPurchase").click(function () {
 function clearDetails() {
     $('#cmbCustomerId,#customerName,#customerAddress,#customerSalary,#cmbItemCode,#itemName,#itemPrice,#qtyOnHand,#buyQty,#txtDiscount,#txtTotal,#txtDiscount,#txtSubTotal,#txtCash,#txtBalance').val("");
 }
+
+/**
+ * Logics
+ * Place order
+ * Clear Button
+ * */
+$("#btnClearAll").click(function () {
+    clearDetails();
+});
