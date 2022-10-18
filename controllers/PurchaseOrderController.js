@@ -260,7 +260,7 @@ $(document).on("change keyup blur", "#txtCash", function () {
  * */
 function placeOrder() {
     //create object
-    let orderArrayList = new order(
+    let orderArrayList = new orderDTO(
         $("#orderId").val(),
         $("#cmbCustomerId").val(),
         $("#orderDate").val(),
@@ -288,7 +288,7 @@ function pushOrderDetails() {
         let qty = $("#tblAddToCart tr").children(':nth-child(4)')[i].innerText;
         let total = $("#tblAddToCart tr").children(':nth-child(5)')[i].innerText;
 
-        let orderDetailArrayList = new orderDetail(orderId, cusId, itemId, qty, total);
+        let orderDetailArrayList = new orderDetailDTO(orderId, cusId, itemId, qty, total);
 
         orderDetails.push(orderDetailArrayList);
         console.log(orderDetailArrayList);

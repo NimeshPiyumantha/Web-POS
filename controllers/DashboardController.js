@@ -56,4 +56,6 @@ $("#orderDetailsBtn").click(function () {
     $("#OrderSection").css('display', 'none');
     $("#OrderDetails").css('display', 'block');
 
+    loadAllOrders();
+    loadAllOrderDetails();
 });
