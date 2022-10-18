@@ -307,6 +307,9 @@ $("#btnPurchase").click(function () {
     $("#orderId").val( generateOrderID());
     clearDetails();
     $("#tblAddToCart").empty();
+    $("#btnPurchase").attr('disabled', true);
+    $("#btnAddToCart").attr('disabled', true);
+    total = 0;
 
 });
 
