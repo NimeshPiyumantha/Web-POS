@@ -83,9 +83,32 @@ let subTotal = 0;
  * Place order
  * */
 $("#btnAddToCart").on( "click", function() {
+    let duplicate = false;
+    for (let i = 0; i < $("#tblAddToCart tr").length; i++) {
+        if ($("#cmbItemCode option:selected").text() === $("#tblAddToCart tr").children(':nth-child(1)')[i].innerText) {
+            duplicate = true;
 
-    loadCartTableDetail();
+        }
+    }
+    if (duplicate !== true) {
+
+        loadCartTableDetail();
+        reduceQty($("#buyQty").val());
+
+    }
 });
+
+/**
+ * Logics
+ * Place order
+ * Reduce QtyOnHand
+ * */
+function reduceQty(orderQty) {
+    let minQty = parseInt(orderQty);
+    let reduceQty = parseInt($("#qtyOnHand").val());
+    reduceQty = reduceQty - minQty;
+    $("#qtyOnHand").val(reduceQty);
+}
 
 /**
  * Logics
