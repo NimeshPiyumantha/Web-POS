@@ -105,5 +105,23 @@ function loadCartTableDetail() {
     let row = `<tr><td>${itemCode}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemOrderQty}</td><td>${total}</td></tr>`;
 
     $("#tblAddToCart").append(row);
-
 }
+
+/**
+ * Logics
+ * Place order
+ * Enter BuyQty and Check Qty On Hand
+ * */
+
+$(document).on("change keyup blur", "#buyQty", function () {
+    let qtyOnHand = $("#qtyOnHand").val();
+    let buyQty = $("#buyQty").val();
+    let buyOnHand = qtyOnHand - buyQty;
+    if (buyOnHand < 0) {
+        $("#lblCheckQty").parent().children('strong').text(qtyOnHand + " : Empty On Stock..!!");
+        $("#btnAddToCart").attr('disabled', true);
+    } else {
+        $("#lblCheckQty").parent().children('strong').text("");
+        $("#btnAddToCart").attr('disabled', false);
+    }
+});
