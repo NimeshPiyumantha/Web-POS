@@ -294,3 +294,18 @@ function pushOrderDetails() {
         console.log(orderDetailArrayList);
     }
 }
+
+/**
+ * Logics
+ * Place order
+ * Purchase Order button
+ * */
+
+$("#btnPurchase").click(function () {
+    placeOrder();
+    pushOrderDetails();
+    $("#orderId").val( generateOrderID());
+    clearDetails();
+    $("#tblAddToCart").empty();
+
+});
