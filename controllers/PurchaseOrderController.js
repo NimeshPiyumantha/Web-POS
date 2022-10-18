@@ -253,3 +253,25 @@ $(document).on("change keyup blur", "#txtCash", function () {
         $("#btnPurchase").attr('disabled', false);
     }
 });
+
+/**
+ * Logics
+ * Place order
+ * placeOrder to Order Array
+ * method
+ * */
+function placeOrder() {
+    //create object
+    let orderArrayList = new order(
+        $("#orderId").val(),
+        $("#cmbCustomerId").val(),
+        $("#orderDate").val(),
+        $("#txtSubTotal").val(),
+        $("#txtDiscount").val()
+    );
+
+    orders.push(orderArrayList);
+    console.log(orderArrayList);
+
+    saveUpdateAlert("Place Ordering", "Successfully.");
+}
