@@ -75,6 +75,7 @@ function yesNoAlertIDelete(value) {
                     timer: 1500
                 })
                 $(this).remove();
+                loadAllItems();
             } else {
                 Swal.fire({
                     position: 'top-end',

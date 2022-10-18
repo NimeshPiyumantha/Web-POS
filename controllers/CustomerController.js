@@ -110,7 +110,6 @@ function blindClickEvents() {
     });
 }
 
-
 /**
  * Table Listener double click and Click and Remove textFields
  * */
@@ -279,7 +278,6 @@ $("#txtCusId").on('keydown', function (event) {
         focusText($("#txtCusId"));
     }
 });
-
 
 $("#txtCusName").on('keydown', function (event) {
     if (event.key === "Enter" && check(regExCusName, $("#txtCusName"))) {

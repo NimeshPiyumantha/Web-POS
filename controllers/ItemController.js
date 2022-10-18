@@ -10,7 +10,6 @@
 $("#btnAddItem").attr('disabled', true);
 $("#btnUpdateItem").attr('disabled', true);
 $("#btnDeleteItem").attr('disabled', true);
-
 /**
  * Item Save
  * Item ID
@@ -74,7 +73,6 @@ function loadAllItems() {
     //remove all the table body content before adding data
     $("#ItemTable").empty();
 
-
     // get all items records from the array
     for (var item of items) {
         console.log(item);// items object
@@ -99,6 +97,7 @@ function blindClickEventsItem() {
         let name = $(this).children().eq(1).text();
         let qty = $(this).children().eq(2).text();
         let price = $(this).children().eq(3).text();
+        console.log(code, name, qty, price);
 
         $("#txtItemID").val(code);
         $("#txtItemName").val(name);
@@ -118,14 +117,13 @@ function dblRowClickEventsItem() {
     $("#ItemTable>tr").on('dblclick', function () {
         let deleteItemID = $(this).children().eq(0).text();
         yesNoAlertIDelete(deleteItemID);
-
     });
 }
 
 /**
  * Search id and Load Table
  * */
-$("#btnSearchItem").on("keypress", function (event) {
+$("#ItemIdSearch").on("keypress", function (event) {
     if (event.which === 13) {
         var resultI = items.find(({code}) => code === $("#ItemIdSearch").val());
         console.log(resultI);
@@ -163,6 +161,8 @@ $("#btnUpdateItem").on( "click", function() {
     let response = updateItem(ItemId);
     if (response) {
         saveUpdateAlert(ItemId, "updated.");
+        clearItemTextFields();
+        loadAllItems();
     } else {
         unSucsessUpdateAlert(ItemId);
     }
@@ -178,7 +178,6 @@ function updateItem(itemId) {
         item.name = $("#txtItemName").val();
         item.qty = $("#txtItemQty").val();
         item.price = $("#txtItemPrice").val();
-        loadAllItems();
         return true;
     } else {
         return false;
@@ -194,6 +193,7 @@ function updateItem(itemId) {
  * */
 $("#btnDeleteItem").on( "click", function() {
     let deleteIID = $("#txtItemID").val();
+
     yesNoAlertIDelete(deleteIID);
 });
 
@@ -263,7 +263,6 @@ $("#txtItemID,#txtItemName,#txtItemQty,#txtItemPrice").on('keydown', function (e
     }
 });
 
-
 $("#txtItemID,#txtItemName,#txtItemQty,#txtItemPrice").on('keyup', function (event) {
     checkValidity(ItemsValidations);
 });
@@ -271,7 +270,6 @@ $("#txtItemID,#txtItemName,#txtItemQty,#txtItemPrice").on('keyup', function (eve
 $("#txtItemID,#txtItemName,#txtItemQty,#txtItemPrice").on('blur', function (event) {
     checkValidity(ItemsValidations);
 });
-
 
 $("#txtItemID").on('keydown', function (event) {
     if (event.key === "Enter" && check(regExItemCode, $("#txtItemID"))) {
@@ -281,13 +279,11 @@ $("#txtItemID").on('keydown', function (event) {
     }
 });
 
-
 $("#txtItemName").on('keydown', function (event) {
     if (event.key === "Enter" && check(regExItemName, $("#txtItemName"))) {
         focusText($("#txtItemQty"));
     }
 });
-
 
 $("#txtItemQty").on('keydown', function (event) {
     if (event.key === "Enter" && check(regExItemPrice, $("#txtItemQty"))) {
@@ -313,8 +309,8 @@ function setButtonStateItemSave(value) {
 
 function setButtonStateItemUpdate(value) {
     if (value > 0) {
-        $("#btnAddItem").attr('disabled', true);
+        $("#btnUpdateItem").attr('disabled', true);
     } else {
-        $("#btnAddItem").attr('disabled', false);
+        $("#btnUpdateItem").attr('disabled', false);
     }
 }
