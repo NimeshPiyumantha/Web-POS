@@ -106,6 +106,27 @@ $("#btnAddToCart").on( "click", function() {
 
     }
 
+    /**
+     * Logics
+     * Place order
+     * Table Add logic
+     * */
+    $("#tblAddToCart>tr").click('click', function () {
+
+        tableRow = $(this);
+        let itemCode = $(this).children(":eq(0)").text();
+        let itemName = $(this).children(":eq(1)").text();
+        let unitPrice = $(this).children(":eq(2)").text();
+        let qty = $(this).children(":eq(3)").text();
+        let total = $(this).children(":eq(4)").text();
+
+        $("#cmbItemCode").val(itemCode);
+        $("#itemName").val(itemName);
+        $("#itemPrice").val(unitPrice);
+        $("#buyQty").val(qty);
+        $("#txtTotal").val(total);
+
+    });
 });
 
 /**
