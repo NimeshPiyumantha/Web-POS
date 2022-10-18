@@ -46,6 +46,7 @@ $("#orderBtn").click(function () {
     $("#OrderSection").css('display', 'block');
     $("#OrderDetails").css('display', 'none');
 
+    $("#orderId").val(generateOrderID());
 });
 
 $("#orderDetailsBtn").click(function () {
