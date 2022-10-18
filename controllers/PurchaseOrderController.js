@@ -94,7 +94,7 @@ $("#btnAddToCart").on( "click", function() {
 
         loadCartTableDetail();
         reduceQty($("#buyQty").val());
-
+        calcTotal($("#buyQty").val() * $("#itemPrice").val());
     }
 });
 
@@ -108,6 +108,17 @@ function reduceQty(orderQty) {
     let reduceQty = parseInt($("#qtyOnHand").val());
     reduceQty = reduceQty - minQty;
     $("#qtyOnHand").val(reduceQty);
+}
+
+/**
+ * Logics
+ * Place order
+ * Calculate Total
+ * */
+
+function calcTotal(amount) {
+    total += amount;
+    $("#txtTotal").val(total);
 }
 
 /**
