@@ -77,3 +77,33 @@ let itemOrderQty;
 let total = 0;
 let discount = 0;
 let subTotal = 0;
+
+/**
+ * Logics
+ * Place order
+ * */
+$("#btnAddToCart").on( "click", function() {
+
+    loadCartTableDetail();
+});
+
+/**
+ * Logics
+ * Place order
+ * Table Load
+ * */
+$("#tblAddToCart").empty();
+
+function loadCartTableDetail() {
+    itemCode = $("#cmbItemCode").val();
+    itemName = $("#itemName").val();
+    itemPrice = $("#itemPrice").val();
+    itemQty = $("#qtyOnHand").val();
+    itemOrderQty = $("#buyQty").val();
+
+    let total = itemPrice * itemOrderQty;
+    let row = `<tr><td>${itemCode}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemOrderQty}</td><td>${total}</td></tr>`;
+
+    $("#tblAddToCart").append(row);
+
+}
