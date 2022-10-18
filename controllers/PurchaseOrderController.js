@@ -82,6 +82,7 @@ let subTotal = 0;
  * Logics
  * Place order
  * */
+let tableRow = [];
 $("#btnAddToCart").on( "click", function() {
     let duplicate = false;
     for (let i = 0; i < $("#tblAddToCart tr").length; i++) {
@@ -100,6 +101,8 @@ $("#btnAddToCart").on( "click", function() {
         manageQtyOnHand(tableRow.children(':nth-child(4)').text(), $("#buyQty").val());
         $(tableRow).children(':nth-child(4)').text($("#buyQty").val());
 
+        manageTotal(tableRow.children(':nth-child(5)').text(), $("#buyQty").val() * $("#itemPrice").val());
+        $(tableRow).children(':nth-child(5)').text($("#buyQty").val() * $("#itemPrice").val());
 
     }
 
@@ -143,6 +146,20 @@ function manageQtyOnHand(preQty, nowQty) {
 
     $("#qtyOnHand").val(avaQty);
 }
+
+/**
+ * Logics
+ * Place order
+ * Manage Total
+ * */
+
+function manageTotal(preTotal, nowTotal) {
+    total -= preTotal;
+    total += nowTotal;
+
+    $("#txtTotal").val(total);
+}
+
 
 /**
  * Logics
