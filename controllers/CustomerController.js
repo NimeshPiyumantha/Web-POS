@@ -85,6 +85,7 @@ function loadAllCustomers() {
     }
     blindClickEvents();
     dblRowClickEventsCus();
+    loadAllCustomersForOption();
     $("#txtCusId").val(generateCustomerID());
 }
 
