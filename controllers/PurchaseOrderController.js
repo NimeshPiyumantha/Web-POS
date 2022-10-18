@@ -95,7 +95,14 @@ $("#btnAddToCart").on( "click", function() {
         loadCartTableDetail();
         reduceQty($("#buyQty").val());
         calcTotal($("#buyQty").val() * $("#itemPrice").val());
+    }else if (duplicate === true) {
+
+        manageQtyOnHand(tableRow.children(':nth-child(4)').text(), $("#buyQty").val());
+        $(tableRow).children(':nth-child(4)').text($("#buyQty").val());
+
+
     }
+
 });
 
 /**
@@ -119,6 +126,22 @@ function reduceQty(orderQty) {
 function calcTotal(amount) {
     total += amount;
     $("#txtTotal").val(total);
+}
+
+/**
+ * Logics
+ * Place order
+ * Manage Available Qty
+ * */
+function manageQtyOnHand(preQty, nowQty) {
+    var preQty = parseInt(preQty);
+    var nowQty = parseInt(nowQty);
+    let avaQty = parseInt($("#qtyOnHand").val());
+
+    avaQty = avaQty + preQty;
+    avaQty = avaQty - nowQty;
+
+    $("#qtyOnHand").val(avaQty);
 }
 
 /**
