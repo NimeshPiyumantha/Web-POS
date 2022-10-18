@@ -309,3 +309,12 @@ $("#btnPurchase").click(function () {
     $("#tblAddToCart").empty();
 
 });
+
+/**
+ * Logics
+ * Place order
+ * Clear Method
+ * */
+function clearDetails() {
+    $('#cmbCustomerId,#customerName,#customerAddress,#customerSalary,#cmbItemCode,#itemName,#itemPrice,#qtyOnHand,#buyQty,#txtDiscount,#txtTotal,#txtDiscount,#txtSubTotal,#txtCash,#txtBalance').val("");
+}
