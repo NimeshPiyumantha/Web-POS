@@ -181,14 +181,12 @@ function manageTotal(preTotal, nowTotal) {
     $("#txtTotal").val(total);
 }
 
-
 /**
  * Logics
  * Place order
  * Table Load
  * */
 $("#tblAddToCart").empty();
-
 function loadCartTableDetail() {
     itemCode = $("#cmbItemCode").val();
     itemName = $("#itemName").val();
@@ -274,4 +272,25 @@ function placeOrder() {
     console.log(orderArrayList);
 
     saveUpdateAlert("Place Ordering", "Successfully.");
+}
+
+/**
+ * Logics
+ * Place order
+ * placeOrder to Order Details Array
+ * method
+ * */
+function pushOrderDetails() {
+    for (let i = 0; i < $("#tblAddToCart tr").length; i++) {
+        let orderId = $("#orderId").val();
+        let cusId = $("#cmbCustomerId").val();
+        let itemId = $("#tblAddToCart tr").children(':nth-child(1)')[i].innerText;
+        let qty = $("#tblAddToCart tr").children(':nth-child(4)')[i].innerText;
+        let total = $("#tblAddToCart tr").children(':nth-child(5)')[i].innerText;
+
+        let orderDetailArrayList = new orderDetail(orderId, cusId, itemId, qty, total);
+
+        orderDetails.push(orderDetailArrayList);
+        console.log(orderDetailArrayList);
+    }
 }
