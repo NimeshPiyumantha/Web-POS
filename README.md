@@ -9,9 +9,9 @@ This is My Personal Web Project.
 
 
 ## Links
-* 🔗 <a href="https://www.gloomaps.com/6wJYqTkp9K" target="_blank">POS System Site Map</a>
-* 🔗 <a href="https://wireframe.cc/JkNiDp" target="_blank">POS System Wire Frame</a>
-* 🔗 <a href="https://www.figma.com/file/omhGhDtaY2KtQchRBKmaQu/POS-System?node-id=0%3A1" target="_blank">POS System Mockup</a>
+* 🔗 <a href="https://www.gloomaps.com/bsC9rMgdrG" target="_blank">POS System Site Map</a>
+* 🔗 <a href="https://wireframe.cc/US4npz" target="_blank">POS System Wire Frame</a>
+* 🔗 <a href="https://www.figma.com/file/97Vfr3yzTFQ57NZQbhxICO/POS-System-SPA" target="_blank">POS System Mockup</a>
 * 🔗 <a href="https://nimeshpiyumantha.github.io/Web-POS/" target="_blank">GitHub Page</a>
 
 ##
