@@ -234,3 +234,22 @@ $(document).on("change keyup blur", "#txtDiscount", function () {
 
     $("#txtSubTotal").val(subTotal);
 });
+
+/**
+ * Logics
+ * Place order
+ * Enter Cash and Balance display
+ * */
+
+$(document).on("change keyup blur", "#txtCash", function () {
+    let cash = $("#txtCash").val();
+    let balance = cash - subTotal;
+    $("#txtBalance").val(balance);
+    if (balance < 0) {
+        $("#lblCheckSubtotal").parent().children('strong').text(balance + " : plz enter valid Balance");
+        $("#btnPurchase").attr('disabled', true);
+    } else {
+        $("#lblCheckSubtotal").parent().children('strong').text("");
+        $("#btnPurchase").attr('disabled', false);
+    }
+});
