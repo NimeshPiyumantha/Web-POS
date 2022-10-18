@@ -42,3 +42,38 @@ $("#cmbCustomerId").click(function () {
     $("#customerAddress").val(rCmbC.address);
     $("#customerContact").val(rCmbC.contact);
 });
+
+/**
+ * Items Details
+ * Item Select Combo
+ * */
+function loadAllItemsForOption() {
+    $("#cmbItemCode").empty();
+    for (let item of items) {
+        $("#cmbItemCode").append(`<option>${item.code}</option>`);
+    }
+}
+
+$("#cmbItemCode").click(function () {
+    let rCmbI = items.find(({code}) => code === $("#cmbItemCode").val());
+    $("#itemName").val(rCmbI.name);
+    $("#itemPrice").val(rCmbI.price);
+    $("#qtyOnHand").val(rCmbI.qty);
+});
+
+/**
+ * Items Details
+ * */
+
+let itemCode;
+let itemName;
+let itemPrice;
+let itemQty;
+let itemOrderQty;
+
+/**
+ * Order Details
+ * */
+let total = 0;
+let discount = 0;
+let subTotal = 0;

@@ -86,6 +86,7 @@ function loadAllItems() {
     blindClickEventsItem();
     dblRowClickEventsItem();
     $("#txtItemID").val(generateItemID());
+    loadAllItemsForOption();
 }
 
 /**
