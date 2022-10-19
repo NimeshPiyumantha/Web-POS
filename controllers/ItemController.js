@@ -48,6 +48,7 @@ $("#btnAddItem").on("click", function () {
     /* console.log(customers);*/
     $("#txtItemID").val(generateItemID());
     loadAllItems();
+    $("#txtItemsCount").text(items.length);
 });
 
 /**

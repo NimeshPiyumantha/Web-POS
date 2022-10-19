@@ -48,6 +48,7 @@ $("#btnSaveCustomer").on( "click", function() {
     /* console.log(customers);*/
     $("#txtCusId").val(generateCustomerID());
     loadAllCustomers();
+    $("#txtCustomerCount").text(customers.length);
 });
 
 /**

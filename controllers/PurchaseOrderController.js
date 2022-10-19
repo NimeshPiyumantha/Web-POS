@@ -310,6 +310,7 @@ $("#btnPurchase").click(function () {
     $("#btnPurchase").attr('disabled', true);
     $("#btnAddToCart").attr('disabled', true);
     total = 0;
+    $("#txtOrderCount").text(orders.length);
 
 });
 
